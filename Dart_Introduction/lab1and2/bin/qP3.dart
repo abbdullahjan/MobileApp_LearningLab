@@ -4,7 +4,7 @@
 
 import "dart:io";
 void main(){
-    print("Enter Number 1:");
+    print("Enter Number:");
   int num = int.parse(stdin.readLineSync()!);
   evenOdd(num);
 }

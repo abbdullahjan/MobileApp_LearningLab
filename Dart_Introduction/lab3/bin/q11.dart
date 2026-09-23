@@ -1,12 +1,15 @@
 void main(){
-    List mylist = [10,20,30,40];
-    print("Initial List: $mylist");
-    mylist.add(50);
-    mylist.remove(20);
-    if(mylist.contains(30)){
-      print("Present in list");
+    Set mySet = {10,20,30,40};
+    print("Initial Set: $mySet");
+    mySet.add(50);
+        print("After adding 50: $mySet");
+
+    mySet.remove(20);
+        print("After removing 30: $mySet");
+    if(mySet.contains(30)){
+      print("Present in Set");
     }
 
 
-    print("Final List: $mylist");
+    print("Final Set: $mySet");
 }

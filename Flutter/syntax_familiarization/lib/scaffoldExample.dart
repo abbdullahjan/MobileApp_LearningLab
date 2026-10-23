@@ -14,8 +14,9 @@ class Scaffoldexample extends StatelessWidget{
           shape: Border(
             top: BorderSide(color: Color(0xFF000000), width: 2.0), 
             bottom: BorderSide(color: Color.fromARGB(255, 0, 0, 0))
-        )
         ),
+        ),
+        floatingActionButton: Text("data"),
         body: Center(
           child: Text("This is the text for body of a scaffold"))
 

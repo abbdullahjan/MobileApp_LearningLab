@@ -1,7 +1,7 @@
 import 'dart:io';
 
 void main(){
-var student = Map<String, double>();
+var student = <String, double>{};
 student["student1"] = 20;
 student["student2"] = 30;
 student["student3"] = 40;

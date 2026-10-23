@@ -4,7 +4,7 @@ void main(){
 }
 
 Map<String, int> returnMap(List mylist){
-  var myMap = Map<String,int>();
+  var myMap = <String,int>{};
   for(var i in mylist){
     if(myMap.containsKey(i)){continue;}
     myMap[i] = countvalues(mylist, i);

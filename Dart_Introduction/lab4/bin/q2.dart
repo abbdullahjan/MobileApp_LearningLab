@@ -1,7 +1,7 @@
 void main(){
   List<int>? list1 = [1, 2, 3];
 List<int>? list2 = [4, 5, 6];
-List<int>? list3 = null;
+List<int>? list3;
 List<int>? list4 = [7, 8, 9];
 // Combining different combinations of lists
 print('Combining list1 and list2: ${addList(list1, list2)}');

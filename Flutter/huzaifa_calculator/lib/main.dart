@@ -41,6 +41,14 @@ class _CalculatorPageState extends State<CalculatorPage> {
                 'Welcome to Assignment 2',
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
+              const SizedBox(height: 5),
+
+              // App title
+              const Text(
+                'Calculator Application',
+                style: TextStyle(fontSize: 16, color: Colors.indigo),
+              ),
+              const SizedBox(height: 25),
             ],
           ),
         ),

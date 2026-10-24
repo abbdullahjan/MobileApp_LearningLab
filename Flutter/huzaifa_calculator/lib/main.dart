@@ -24,6 +24,10 @@ class CalculatorPage extends StatefulWidget {
 }
 
 class _CalculatorPageState extends State<CalculatorPage> {
+  // Controllers to read the input fields
+  final firstController = TextEditingController();
+  final secondController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,6 +53,51 @@ class _CalculatorPageState extends State<CalculatorPage> {
                 style: TextStyle(fontSize: 16, color: Colors.indigo),
               ),
               const SizedBox(height: 25),
+
+              // Input fields inside a container
+              Container(
+                padding: const EdgeInsets.all(15),
+                decoration: BoxDecoration(
+                  color: Colors.indigo[50],
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        const Text('First Number:'),
+                        const SizedBox(width: 10),
+                        Expanded(
+                          child: TextField(
+                            controller: firstController,
+                            keyboardType: TextInputType.number,
+                            decoration: const InputDecoration(
+                              border: OutlineInputBorder(),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 10),
+                    Row(
+                      children: [
+                        const Text('Second Number:'),
+                        const SizedBox(width: 10),
+                        Expanded(
+                          child: TextField(
+                            controller: secondController,
+                            keyboardType: TextInputType.number,
+                            decoration: const InputDecoration(
+                              border: OutlineInputBorder(),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 20),
             ],
           ),
         ),

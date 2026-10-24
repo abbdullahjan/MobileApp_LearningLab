@@ -24,6 +24,10 @@ class CalculatorPage extends StatefulWidget {
 }
 
 class _CalculatorPageState extends State<CalculatorPage> {
+  // Controllers to read the input fields
+  final firstController = TextEditingController();
+  final secondController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,6 +51,32 @@ class _CalculatorPageState extends State<CalculatorPage> {
                 'Calculator Application',
                 style: TextStyle(fontSize: 16, color: Colors.teal),
               ),
+            ),
+            const SizedBox(height: 20),
+
+            // First Number - label on top, field below
+            const Align(
+              alignment: Alignment.centerLeft,
+              child: Text('First Number'),
+            ),
+            const SizedBox(height: 5),
+            TextField(
+              controller: firstController,
+              keyboardType: TextInputType.number,
+              decoration: const InputDecoration(border: OutlineInputBorder()),
+            ),
+            const SizedBox(height: 10),
+
+            // Second Number - label on top, field below
+            const Align(
+              alignment: Alignment.centerLeft,
+              child: Text('Second Number'),
+            ),
+            const SizedBox(height: 5),
+            TextField(
+              controller: secondController,
+              keyboardType: TextInputType.number,
+              decoration: const InputDecoration(border: OutlineInputBorder()),
             ),
             const SizedBox(height: 20),
           ],

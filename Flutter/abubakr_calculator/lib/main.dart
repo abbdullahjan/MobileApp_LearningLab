@@ -79,9 +79,35 @@ class _CalculatorPageState extends State<CalculatorPage> {
               decoration: const InputDecoration(border: OutlineInputBorder()),
             ),
             const SizedBox(height: 20),
-          ],
-        ),
-      ),
+
+            // Buttons stacked vertically, full width, different colors
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                child: const Text('Sum'),
+              ),
+            ),
+            const SizedBox(height: 10),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.orange),
+                child: const Text('Multiplication'),
+              ),
+            ),
+            const SizedBox(height: 10),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.purple),
+                child: const Text('Division'),
+              ),
+            ),
+            const SizedBox(height: 10),
     );
   }
 }

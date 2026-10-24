@@ -31,7 +31,27 @@ class _CalculatorPageState extends State<CalculatorPage> {
         title: const Text('Abubakr     Reg: SP24-BCS-145'),
         backgroundColor: Colors.teal,
       ),
-      body: Container(),
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          children: [
+            const Center(
+              child: Text(
+                'Welcome to Assignment 2',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+            ),
+            const SizedBox(height: 5),
+            const Center(
+              child: Text(
+                'Calculator Application',
+                style: TextStyle(fontSize: 16, color: Colors.teal),
+              ),
+            ),
+            const SizedBox(height: 20),
+          ],
+        ),
+      ),
     );
   }
 }

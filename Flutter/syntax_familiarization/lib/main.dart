@@ -9,6 +9,6 @@ void main(){
 
     // const MaterialApp(home:Scaffoldexample(),
     // debugShowCheckedModeBanner: false,)
-    const Material(child: Rowexample())
+    const MaterialApp(home: Rowexample())
   );
 }

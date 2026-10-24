@@ -136,6 +136,34 @@ class _CalculatorPageState extends State<CalculatorPage> {
                 ],
               ),
               const SizedBox(height: 10),
+
+              // Button row 3: Clear alone, centered
+              ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.black87),
+                child: const Text('Clear'),
+              ),
+              const SizedBox(height: 25),
+
+              // Result field - styled container with centered text
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: Colors.indigo,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: const Center(
+                  child: Text(
+                    '',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),

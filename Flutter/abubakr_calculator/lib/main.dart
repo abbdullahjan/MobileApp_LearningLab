@@ -108,6 +108,40 @@ class _CalculatorPageState extends State<CalculatorPage> {
               ),
             ),
             const SizedBox(height: 10),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                child: const Text('Subtraction'),
+              ),
+            ),
+            const SizedBox(height: 10),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.grey),
+                child: const Text('Clear'),
+              ),
+            ),
+            const SizedBox(height: 20),
+
+            // Result field - bordered container
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(15),
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.teal, width: 2),
+              ),
+              child: const Text(
+                '',
+                style: TextStyle(fontSize: 16),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

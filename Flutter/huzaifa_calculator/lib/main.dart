@@ -28,6 +28,50 @@ class _CalculatorPageState extends State<CalculatorPage> {
   final firstController = TextEditingController();
   final secondController = TextEditingController();
 
+  // Stores the result text
+  String result = '';
+
+  // Runs when any operation button is pressed
+  void calculate(String operation) {
+    // Read values from input fields
+    double? num1 = double.tryParse(firstController.text);
+    double? num2 = double.tryParse(secondController.text);
+
+    // Input validation
+    if (num1 == null || num2 == null) {
+      setState(() {
+        result = 'Please enter valid numbers';
+      });
+      return;
+    }
+
+    // Perform the operation
+    setState(() {
+      if (operation == 'Sum') {
+        result = 'Result: ${num1 + num2}';
+      } else if (operation == 'Multiplication') {
+        result = 'Result: ${num1 * num2}';
+      } else if (operation == 'Division') {
+        if (num2 == 0) {
+          result = 'Cannot divide by zero';
+        } else {
+          result = 'Result: ${num1 / num2}';
+        }
+      } else if (operation == 'Subtraction') {
+        result = 'Result: ${num1 - num2}';
+      }
+    });
+  }
+
+  // Clears everything
+  void clear() {
+    setState(() {
+      firstController.clear();
+      secondController.clear();
+      result = '';
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,6 +85,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              // Welcome message
               const Text(
                 'Welcome to Assignment 2',
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
@@ -104,13 +149,13 @@ class _CalculatorPageState extends State<CalculatorPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () => calculate('Sum'),
                     style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
                     child: const Text('Sum'),
                   ),
                   const SizedBox(width: 15),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () => calculate('Multiplication'),
                     style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
                     child: const Text('Multiplication'),
                   ),
@@ -123,13 +168,13 @@ class _CalculatorPageState extends State<CalculatorPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () => calculate('Division'),
                     style: ElevatedButton.styleFrom(backgroundColor: Colors.orange),
                     child: const Text('Division'),
                   ),
                   const SizedBox(width: 15),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () => calculate('Subtraction'),
                     style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
                     child: const Text('Subtraction'),
                   ),
@@ -139,7 +184,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
 
               // Button row 3: Clear alone, centered
               ElevatedButton(
-                onPressed: () {},
+                onPressed: clear,
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.black87),
                 child: const Text('Clear'),
               ),
@@ -153,10 +198,10 @@ class _CalculatorPageState extends State<CalculatorPage> {
                   color: Colors.indigo,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: const Center(
+                child: Center(
                   child: Text(
-                    '',
-                    style: TextStyle(
+                    result,
+                    style: const TextStyle(
                       fontSize: 18,
                       color: Colors.white,
                       fontWeight: FontWeight.bold,

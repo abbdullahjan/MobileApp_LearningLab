@@ -28,6 +28,50 @@ class _CalculatorPageState extends State<CalculatorPage> {
   final firstController = TextEditingController();
   final secondController = TextEditingController();
 
+  // Stores the result text
+  String result = '';
+
+  // Runs when any operation button is pressed
+  void calculate(String operation) {
+    // Read values from input fields
+    double? num1 = double.tryParse(firstController.text);
+    double? num2 = double.tryParse(secondController.text);
+
+    // Input validation
+    if (num1 == null || num2 == null) {
+      setState(() {
+        result = 'Please enter valid numbers';
+      });
+      return;
+    }
+
+    // Perform the operation
+    setState(() {
+      if (operation == 'Sum') {
+        result = 'Result: ${num1 + num2}';
+      } else if (operation == 'Multiplication') {
+        result = 'Result: ${num1 * num2}';
+      } else if (operation == 'Division') {
+        if (num2 == 0) {
+          result = 'Cannot divide by zero';
+        } else {
+          result = 'Result: ${num1 / num2}';
+        }
+      } else if (operation == 'Subtraction') {
+        result = 'Result: ${num1 - num2}';
+      }
+    });
+  }
+
+  // Clears everything
+  void clear() {
+    setState(() {
+      firstController.clear();
+      secondController.clear();
+      result = '';
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,6 +83,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
+            // Welcome message
             const Center(
               child: Text(
                 'Welcome to Assignment 2',
@@ -46,6 +91,8 @@ class _CalculatorPageState extends State<CalculatorPage> {
               ),
             ),
             const SizedBox(height: 5),
+
+            // App title
             const Center(
               child: Text(
                 'Calculator Application',
@@ -84,7 +131,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () => calculate('Sum'),
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
                 child: const Text('Sum'),
               ),
@@ -93,7 +140,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () => calculate('Multiplication'),
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.orange),
                 child: const Text('Multiplication'),
               ),
@@ -102,7 +149,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () => calculate('Division'),
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.purple),
                 child: const Text('Division'),
               ),
@@ -111,7 +158,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () => calculate('Subtraction'),
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
                 child: const Text('Subtraction'),
               ),
@@ -120,7 +167,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: clear,
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.grey),
                 child: const Text('Clear'),
               ),
@@ -134,9 +181,9 @@ class _CalculatorPageState extends State<CalculatorPage> {
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.teal, width: 2),
               ),
-              child: const Text(
-                '',
-                style: TextStyle(fontSize: 16),
+              child: Text(
+                result,
+                style: const TextStyle(fontSize: 16),
               ),
             ),
           ],

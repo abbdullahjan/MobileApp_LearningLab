@@ -26,6 +26,12 @@ class CalculatorPage extends StatefulWidget {
 class _CalculatorPageState extends State<CalculatorPage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Abubakr     Reg: SP24-BCS-145'),
+        backgroundColor: Colors.teal,
+      ),
+      body: Container(),
+    );
   }
 }

@@ -98,6 +98,44 @@ class _CalculatorPageState extends State<CalculatorPage> {
                 ),
               ),
               const SizedBox(height: 20),
+
+              // Button row 1: Sum and Multiplication
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
+                    child: const Text('Sum'),
+                  ),
+                  const SizedBox(width: 15),
+                  ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                    child: const Text('Multiplication'),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 10),
+
+              // Button row 2: Division and Subtraction
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(backgroundColor: Colors.orange),
+                    child: const Text('Division'),
+                  ),
+                  const SizedBox(width: 15),
+                  ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                    child: const Text('Subtraction'),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 10),
             ],
           ),
         ),

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:syntax_familiarization/MyTextField.dart';
-import 'package:syntax_familiarization/button.dart';
-import 'package:syntax_familiarization/mysizedBox.dart';
-import 'materialApp.dart';
-import 'scaffoldExample.dart';
-import 'rowExample.dart';
-import 'button.dart';
+// import 'package:syntax_familiarization/button.dart';
+// import 'package:syntax_familiarization/mysizedBox.dart';
+// import 'materialApp.dart';
+// import 'scaffoldExample.dart';
+// import 'rowExample.dart';
+// import 'button.dart';
 
 void main(){
-  String text = "this is text";
+  // String text = "this is text";
   runApp(
     // const materialTest()
 

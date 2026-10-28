@@ -76,7 +76,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Abdullah Jan     Reg: SP24-BCS-142'),
+        title: const Text('Huzaifa Nawaz     Reg: SP24-BCS-159'),
         backgroundColor: Colors.blue,
       ),
       body: Column(

@@ -1,53 +1,65 @@
-import 'package:flutter/material.dart';
+import 'dart:ffi';
 
-void main() {
+import 'package:flutter/material.dart';
+void main(){
   runApp(
     MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text("Image Example")),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisSize: MainAxisSize.max,
-
-         children: [
-            MyFruitClass(imagePath: "assets/1.png", text: "SS1"),
-            SizedBox(height: 30),
-            MyFruitClass(imagePath: "assets/2.png", text: "SS2")
-          ],
-        ),
-      ),
-    ),
+        body: CalculatorWidget())
+    )
   );
 }
 
-class MyFruitClass extends StatefulWidget {
-  final String imagePath;
-  final String text;
-  MyFruitClass({super.key, required this.imagePath, required this.text});
+class CalculatorWidget extends StatefulWidget{
+  CalculatorWidget({super.key});
+  
 
-  @override
-  State<MyFruitClass> createState() => myImageState(imagePath:imagePath , text: text);
+  State<CalculatorWidget> createState() => MyCalculatorState();
 }
 
-class myImageState extends State<MyFruitClass> {
-  final String imagePath;
-  final String text;
-  myImageState({required this.imagePath, required this.text});
+class MyCalculatorState extends State<CalculatorWidget>{
+  String Input = "";
+
+
 
   @override
-  Widget build(BuildContext build) {
-    return Container(
-      decoration: BoxDecoration(border: Border.all(color: Colors.black)),
-      child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
+  Widget build(BuildContext context){
+   return Container(
+          decoration: BoxDecoration(border: Border.all(color: Colors.black)),
+          child: Column(
+            children: [
+              TextField(
+                decoration: InputDecoration(border: OutlineInputBorder()),
+                controller: TextEditingController(text: Input),
+                ),
+              Row(children: [
+                ElevatedButton(onPressed: () => setState(() {
+                  Input = "${Input}1";
+                }), child: Text("1"),),
+                ElevatedButton(onPressed: () => setState(() {
+                  Input = "${Input}2";
+                }), child: Text("2"),),
+                ElevatedButton(onPressed: () => setState(() {
+                  Input = "${Input}3";
+                }), child: Text("3"),),
+                ElevatedButton(onPressed: () => setState(() {
+                  Input = "${Input}+";
+                }), child: Text("+"),),
+                ElevatedButton(onPressed: () => setState(() {
+                  var arr = Input.split("+");
+                  int sum = 0;
+                  for(var i in arr){
+                    if(int.tryParse(i) != null){
+                      sum += int.parse(i);
+                    }
+                  }
+                  Input = "${sum}";
+                }), child: Text("="),),
 
-          children: [
-          Image.asset(imagePath,width: 100, height: 100,),
-          Text(text)
-        ],
-      )
-    );
+              ],)
+            ]
+          )
+        );
+      
   }
 }

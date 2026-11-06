@@ -44,14 +44,25 @@ class _MyState extends State<MyForm> {
           },
           child: Text("Add"),
         ),
-        Expanded(
+        // Expanded(
+        //   child: ListView.builder(
+        //     itemBuilder: ((context, index) {
+        //       return Text("${myList[index]}");
+        //     }),
+        //     itemCount: myList.length,
+        //   ),
+        // ),
+        Container(
+          height: 200,
+          width: 200,
+          color: Color.fromARGB(100, 100, 100, 200),
           child: ListView.builder(
             itemBuilder: ((context, index) {
               return Text("${myList[index]}");
             }),
             itemCount: myList.length,
           ),
-        ),
+        )
       ],
     );
   }
